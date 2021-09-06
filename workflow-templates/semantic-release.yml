@@ -1,8 +1,7 @@
 name: Release
 on:
   push:
-    branches:
-      - master
+    branches: [ $default-branch ]
 jobs:
   release:
     name: Release
