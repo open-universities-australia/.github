@@ -1,0 +1,27 @@
+name: Register Service
+on:
+  push:
+    paths:
+      # Only run when the service-definition is updated.
+      - 'service-definition.yaml'
+    branches:
+      - $default-branch
+jobs:
+  register-service:
+    name: Register Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          registry-url: https://npm.pkg.github.com/
+          scope: "@open-universities-australia"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PAT_PACKAGE_READ_ONLY }}
+      - name: Register Service
+        run: npx @open-universities-australia/service-catalog-cli service:update --host https://scs.tools.opendev.edu.au
