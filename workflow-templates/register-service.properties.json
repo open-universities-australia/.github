@@ -1,0 +1,8 @@
+{
+  "name": "SCS Registration Workflow",
+  "description": "Register a service with the service-catalog-service.",
+  "iconName": "OUA",
+  "filePatterns": [
+    "service-definition.yml"
+  ]
+}

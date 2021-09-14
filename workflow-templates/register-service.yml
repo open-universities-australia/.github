@@ -1,0 +1,22 @@
+name: Register Service
+on:
+  push:
+    paths:
+      # Only run when the service-definition is updated.
+      - 'service-definition.yaml'
+    branches:
+      - $default-branch
+jobs:
+  register-service:
+    name: Register Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Register Service
+        uses: open-universities-australia/actions/register-service@v1
+        with:
+          scs-endpoint: ${{ secrets.SCS_URL }}
+          scs-cli-package-token: ${{ secrets.PAT_PACKAGE_READ_ONLY }}
