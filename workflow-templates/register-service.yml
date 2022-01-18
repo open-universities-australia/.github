@@ -3,7 +3,7 @@ on:
   push:
     paths:
       # Only run when the service-definition is updated.
-      - 'service-definition.yaml'
+      - '**/service-definition.yaml'
     branches:
       - $default-branch
 jobs:
