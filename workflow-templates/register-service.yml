@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Register Service
-        uses: open-universities-australia/actions/register-service@v1
+        uses: open-universities-australia/actions/register-service@main
         with:
           scs-endpoint: ${{ secrets.SCS_URL }}
           scs-cli-package-token: ${{ secrets.PAT_PACKAGE_READ_ONLY }}
