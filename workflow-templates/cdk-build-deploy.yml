@@ -1,0 +1,14 @@
+name: Build and Deploy CDK app
+on:
+  push:
+    branches:
+      - $default-branch
+jobs:
+  cdk-build-deploy:
+    name: CDK build and deploy
+    runs-on: [self-hosted]
+    steps:
+      - name: Register Service
+        uses: open-universities-australia/actions/cdk@feature/pet-975-cdk-gha
+        with:
+          node-auth-token: ${{ secrets.PAT_PACKAGE_READ_ONLY }}
