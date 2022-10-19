@@ -4,6 +4,10 @@ on:
     branches:
       - $default-branch
 jobs:
+  workdir_matrix:
+    strategy:
+      matrix:
+        working-directory: [ dir1, dir2 ] #Update this
   cdk-build-deploy:
     name: CDK build and deploy
     runs-on: [self-hosted]
@@ -12,3 +16,4 @@ jobs:
         uses: open-universities-australia/actions/cdk@feature/pet-975-cdk-gha
         with:
           node-auth-token: ${{ secrets.PAT_PACKAGE_READ_ONLY }}
+        working-directory: ./${{ matrix.working-directory }}
