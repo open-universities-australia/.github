@@ -1,0 +1,5 @@
+{
+  "name": "CDK build and deploy",
+  "description": "Build and deploy aws cdk app",
+  "iconName": "OUA",
+}
